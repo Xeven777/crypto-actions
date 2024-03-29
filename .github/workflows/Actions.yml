@@ -10,12 +10,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Bun
+      - name: Setup Bun & run
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-
-      - name: Run Script to update prices
         run: |
           bun run dev
           git config --global user.email "xevenbiswas@gmail.com"
