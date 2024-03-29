@@ -1,19 +1,25 @@
-# name: Daily Readme Update
+name: Daily Readme Update
 
-# on:
-#   schedule:
-#     - cron: '0 4,8,12,17,22 * * *'
-# jobs:
-#   update-readme:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#       - name: Update readme
-#         run: |
-#           echo "peep " >> readme.md
+on:
+  schedule:
+    - cron: "0 4,8,12,17,22 * * *"
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-#           git config --global user.email "xevenbiswas@gmail.com"
-#           git config --global user.name "Anish"
-#           git add readme.md
-#           git commit -m "Added daily message to README on $(TZ=Asia/Kolkata date +'%Y-%m-%d %H:%M')"
-#           git push origin main
+      - name: Setup Bun
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Run Script to update prices
+        run: |
+          bun run dev
+          git config --global user.email "xevenbiswas@gmail.com"
+          git config --global user.name "Anish"
+          git add README.md
+          git commit -m "Updated README on $(TZ=Asia/Kolkata date +'%Y-%m-%d %H:%M')"
+          git push origin main
