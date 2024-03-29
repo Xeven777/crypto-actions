@@ -32,10 +32,6 @@ async function getValues() {
       style: "currency",
       currency: "USD",
     });
-    const bitcoinUSD = formatterUSD.format(data.bitcoin.usd);
-    const bitcoinINR = formatterINR.format(data.bitcoin.inr);
-    const ethereumUSD = formatterUSD.format(data.ethereum.usd);
-    const ethereumINR = formatterINR.format(data.ethereum.inr);
 
     const timestamp = new Date().toLocaleString();
 
@@ -48,11 +44,23 @@ async function getValues() {
 
 ## Bitcoin
 
-**Price:** ${bitcoinUSD} (in USD) & ${bitcoinINR} (in INR)
+**Price:** ${formatterUSD.format(data.bitcoin?.usd ?? 0)} (in USD) & ${formatterINR.format(data.bitcoin?.inr ?? 0)} (in INR)
 
 ## Ethereum
 
-**Price:** ${ethereumUSD} (in USD) & ${ethereumINR} (in INR)
+**Price:** ${formatterUSD.format(data.ethereum?.usd ?? 0)} (in USD) & ${formatterINR.format(data.ethereum?.inr ?? 0)} (in INR)
+
+## Solana
+
+**Price:** ${formatterUSD.format(data.solana?.usd ?? 0)} (in USD) & ${formatterINR.format(data.solana?.inr ?? 0)} (in INR)
+
+## Tether
+
+**Price:** ${formatterUSD.format(data.tether?.usd ?? 0)} (in USD) & ${formatterINR.format(data.tether?.inr ?? 0)} (in INR)
+
+## Dogecoin
+
+**Price:** ${formatterUSD.format(data.dogecoin?.usd ?? 0)} (in USD) & ${formatterINR.format(data.dogecoin?.inr ?? 0)} (in INR)
 
 > _Last Updated: ${timestamp}_
 `;
