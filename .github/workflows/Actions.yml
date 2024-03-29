@@ -14,8 +14,10 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-          
+
       - name: Get Prices
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
         run: |
           bun run dev
           git config --global user.email "xevenbiswas@gmail.com"

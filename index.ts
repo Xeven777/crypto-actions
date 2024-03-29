@@ -9,7 +9,7 @@ interface CryptoData {
   ethereum: Currency;
 }
 async function getValues() {
-  const apikey = "CG-aWJEVARoHBErs2XEu7FBzzgE";
+  const apikey = process.env.API_KEY || "123";
   const currency = encodeURIComponent("usd,inr");
   const ids = encodeURIComponent("bitcoin,ethereum");
   const url = "https://api.coingecko.com/api/v3/simple/price";
