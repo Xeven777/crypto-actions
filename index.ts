@@ -6,12 +6,15 @@ interface Currency {
 
 interface CryptoData {
   bitcoin: Currency;
+  dogecoin: Currency;
+  tether: Currency;
+  solana: Currency;
   ethereum: Currency;
 }
 async function getValues() {
-  const apikey = process.env.API_KEY || "123";
+  const apikey = process.env.APIKEY || "123";
   const currency = encodeURIComponent("usd,inr");
-  const ids = encodeURIComponent("bitcoin,ethereum");
+  const ids = encodeURIComponent("bitcoin,ethereum,dogecoin,tether,solana");
   const url = "https://api.coingecko.com/api/v3/simple/price";
   try {
     const res = await fetch(
@@ -29,7 +32,6 @@ async function getValues() {
       style: "currency",
       currency: "USD",
     });
-
     const bitcoinUSD = formatterUSD.format(data.bitcoin.usd);
     const bitcoinINR = formatterINR.format(data.bitcoin.inr);
     const ethereumUSD = formatterUSD.format(data.ethereum.usd);
@@ -38,7 +40,11 @@ async function getValues() {
     const timestamp = new Date().toLocaleString();
 
     const content = `
-# Cryptocurrency Prices
+![Crypto](https://www.techguide.com.au/wp-content/uploads/2020/11/crypto3.jpeg)
+
+# Cryptocurrency Prices 🪙📈
+
+#### Get the latest cryptocurrency prices in USD and INR for top 5 cryptocurrencies.
 
 ## Bitcoin
 
@@ -48,7 +54,7 @@ async function getValues() {
 
 **Price:** ${ethereumUSD} (in USD) & ${ethereumINR} (in INR)
 
-_Last Updated: ${timestamp}_
+> _Last Updated: ${timestamp}_
 `;
 
     writeFileSync("README.md", content);
