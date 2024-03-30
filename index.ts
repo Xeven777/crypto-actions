@@ -62,7 +62,7 @@ async function getValues() {
 
 **Price:** ${formatterUSD.format(data.dogecoin?.usd ?? 0)} (in USD) & ${formatterINR.format(data.dogecoin?.inr ?? 0)} (in INR)
 
-> _Last Updated: ${timestamp}_
+> _Last Updated: ${timestamp} (in GMT)_
 `;
 
     writeFileSync("README.md", content);
