@@ -3,98 +3,97 @@
 
 ## 🗂️ Description
 
-Crypto Actions is a GitHub repository that fetches and updates cryptocurrency prices in the README file. This project is designed for developers and cryptocurrency enthusiasts who want to stay up-to-date with the latest market prices. The repository uses a daily GitHub Actions workflow to fetch prices from the CoinGecko API and update the README file.
+Crypto Actions is a GitHub repository that utilizes GitHub Actions to fetch and display real-time cryptocurrency prices on the README file. This project is designed for developers and cryptocurrency enthusiasts who want to stay up-to-date with the latest market prices. The repository uses the CoinGecko API to fetch cryptocurrency data and updates the README file twice a day.
 
-The project provides a simple and efficient way to display cryptocurrency prices, making it a great starting point for developers looking to build similar projects or integrate cryptocurrency data into their applications.
+The project showcases a simple yet effective way to leverage GitHub Actions for automating tasks and updating README files with dynamic content.
 
 ## ✨ Key Features
 
-### **Cryptocurrency Price Updates** 📊
+### 💻 Core Functionality
 
 * Fetches cryptocurrency prices from the CoinGecko API
-* Updates the README file with the latest prices
-* Daily updates via GitHub Actions workflow
+* Updates the README file with real-time market data
+* Uses GitHub Actions for automation
 
-### **Tech Stack** 💻
+### 📊 Data Management
 
-* Built with TypeScript and Bun
-* Uses the CoinGecko API for cryptocurrency data
+* Handles errors and exceptions when fetching data
+* Uses environment variables for API keys
 
 ## 🗂️ Folder Structure
 
 ```mermaid
 graph TD;
- src-->index.ts;
- src-->README.md;
- .github-->workflows;
- workflows-->Actions.yml;
+src-->index.ts;
+.github-->workflows;
+.workflows-->Actions.yml;
+src--> README.md;
 ```
 
 ## 🛠️ Tech Stack
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white&style=for-the-badge)
 ![Bun](https://img.shields.io/badge/Bun-000?logo=bun&logoColor=white&style=for-the-badge)
-![CoinGecko API](https://img.shields.io/badge/CoinGecko%20API-4ea94b?logo=api&logoColor=white&style=for-the-badge)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-208711?logo=githubactions&logoColor=white&style=for-the-badge)
+![CoinGecko API](https://img.shields.io/badge/CoinGecko%20API-000?logo=crypto&logoColor=white&style=for-the-badge)
 
 ## ⚙️ Setup Instructions
 
-To run the project locally, follow these steps:
+To run this project locally:
 
-* Git clone the repository: `https://github.com/Xeven777/crypto-actions.git`
-* Install dependencies: `bun install`
-* Run the project: `bun run index.ts`
+* Git clone the repository: https://github.com/abhraneeldhar7/crypto-actions.git
+* Install dependencies using Bun: `bun install`
+* Run the development script: `bun run dev`
 
 ## 📈 GitHub Actions
 
-The repository uses a daily GitHub Actions workflow to update the README file with cryptocurrency prices. The workflow is defined in the `.github/workflows/Actions.yml` file.
+The repository uses a GitHub Actions workflow named 'Daily Readme Update' to fetch cryptocurrency prices and update the README file. The workflow runs twice a day and uses secrets for API keys.
 
 ```yml
-name: Update README
+name: Daily Readme Update
 
 on:
   schedule:
-    - cron: 0 0 * * *
+    - cron: 0 8,20 * * *
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Setup Bun
-        run: |
-          curl https://bun.sh/install | sh
+        uses: oven-sh/setup-bun@v1
 
-      - name: Run script
-        run: |
-          bun run index.ts
+      - name: Run dev script
+        run: bun run dev
 
-      - name: Commit changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m "Update README" || exit 0
-          git push origin main
+      - name: Update README
+        run: bun run update-readme
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
 ```
 
 ## 📝 Configuration Files
 
-The project uses the following configuration files:
+The repository uses the following configuration files:
 
 * `tsconfig.json`: Configures the TypeScript compiler
-* `package.json`: Defines project metadata, dependencies, and scripts
+* `package.json`: Defines the project structure and dependencies
 * `.gitignore`: Specifies files and directories to ignore in the Git repository
-* `bun.lockb`: Specifies dependencies and their versions used in the project
+
+## 🤖 Main Entry Point
+
+The main entry point of the project is `index.ts`, which imports the `writeFileSync` function from the `fs` module and defines interfaces for currency and cryptocurrency data. The `getValues` function fetches cryptocurrency prices from the CoinGecko API, formats the data, and writes it to the README.md file.
 
 
 
 <br><br>
 <div align="center">
-<img src="https://avatars.githubusercontent.com/u/115650165?v=4" width="120" />
-<h3>Anish</h3>
-<p>Passionate developer with a love for problem-solving, efficient and creative thinking.</p>
+<img src="https://avatars.githubusercontent.com/u/89008279?v=4" width="120" />
+<h3>Abhra the Neel</h3>
+<p>Full-stack developer with expertise in web, Android, and server-side development. Most projects are private due to being production code.</p>
 </div>
 <br>
 <p align="right">
