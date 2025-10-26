@@ -7,22 +7,22 @@
 
 ## Bitcoin
 
-**Price:** $111,487.00 (in USD) & ₹97,90,751.00 (in INR)
+**Price:** $111,408.00 (in USD) & ₹97,83,874.00 (in INR)
 
 ## Ethereum
 
-**Price:** $3,953.93 (in USD) & ₹3,47,234.00 (in INR)
+**Price:** $3,936.39 (in USD) & ₹3,45,694.00 (in INR)
 
 ## Solana
 
-**Price:** $194.15 (in USD) & ₹17,049.92 (in INR)
+**Price:** $193.38 (in USD) & ₹16,982.22 (in INR)
 
 ## Tether
 
-**Price:** $1.00 (in USD) & ₹87.86 (in INR)
+**Price:** $1.00 (in USD) & ₹87.85 (in INR)
 
 ## Dogecoin
 
-**Price:** $0.20 (in USD) & ₹17.27 (in INR)
+**Price:** $0.20 (in USD) & ₹17.17 (in INR)
 
-> _Last Updated: 10/25/2025, 10:20:51 PM (in GMT)_
+> _Last Updated: 10/26/2025, 4:28:00 AM (in GMT)_
